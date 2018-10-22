@@ -1,5 +1,4 @@
-# project1-fantastic-four
-Project 1: The Personal Directory
+# Project 1: The Personal Directory
 
    Description: The Personal Directory contains personal entries
    for the members that consists of undergraduate students, graduate students,

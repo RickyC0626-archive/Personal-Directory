@@ -14,11 +14,11 @@ public class Person
     private String dob = "";
     private String ethnicity = "";
     private String gender = "";
-    private String firstname = "";
-    private String lastname = "";
-    private String maritalstatus = "";
+    private String firstName = "";
+    private String lastName = "";
+    private String maritalStatus = "";
     private int age;
-    private int id;
+    private int personalID;
 
     public String getAddress()
     {
@@ -42,22 +42,22 @@ public class Person
 
     public String getFirstName()
     {
-        return firstname;
+        return firstName;
     }
 
     public String getLastName()
     {
-        return lastname;
+        return lastName;
     }
 
     public String getFullName()
     {
-        return firstname + " " + lastname;
+        return firstName + " " + lastName;
     }
 
     public String getMaritalStatus()
     {
-        return maritalstatus;
+        return maritalStatus;
     }
 
     public int getAge()
@@ -65,9 +65,9 @@ public class Person
         return age;
     }
 
-    public int getID()
+    public int getPersonalID()
     {
-        return id;
+        return personalID;
     }
 
     public void setAddress()
@@ -85,19 +85,19 @@ public class Person
         this.gender = gender;
     }
 
-    public void setFirstName(String firstname)
+    public void setFirstName(String firstName)
     {
-        this.firstname = firstname;
+        this.firstName = firstName;
     }
 
-    public void setLastName(String lastname)
+    public void setLastName(String lastName)
     {
-        this.lastname = lastname;
+        this.lastName = lastName;
     }
 
-    public void setMaritalStatus(String maritalstatus)
+    public void setMaritalStatus(String maritalStatus)
     {
-        this.maritalstatus = maritalstatus;
+        this.maritalStatus = maritalStatus;
     }
 
     public void setAge(int age)
@@ -105,8 +105,8 @@ public class Person
         this.age = age;
     }
 
-    public void setID(int id)
+    public void setPersonalID(int personalID)
     {
-        this.id = id;
+        this.personalID = personalID;
     }
 }

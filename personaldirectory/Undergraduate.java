@@ -17,6 +17,6 @@ public class Undergraduate extends Student
 
     public Undergraduate()
     {
-
+        super();
     }
 }

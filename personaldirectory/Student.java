@@ -23,6 +23,7 @@ public class Student extends Person
 
     Student(String studentID, String academicStatus, String estimatedGraduationDate, String advisor, String studentEmail)
     {
+        super();
         this.studentID = studentID;
         this.academicStatus = academicStatus;
         this.estimatedGraduationDate = estimatedGraduationDate;
@@ -50,9 +51,9 @@ public class Student extends Person
         return advisor;
     }
 
-    public boolean getFailing()
+    public String getStudentEmail()
     {
-        return gpa < 2.0;
+        return studentEmail;
     }
 
     public int getNumberOfClasses()
@@ -60,14 +61,24 @@ public class Student extends Person
         return numberOfClasses;
     }
 
-    public int getCurrentCreditAmount()
+    public double getGPA()
+    {
+        return gpa;
+    }
+
+    public double getCurrentCreditAmount()
     {
         return currentCreditAmount;
     }
 
-    public int getTotalCreditAmount()
+    public double getTotalCreditAmount()
     {
         return totalCreditAmount;
+    }
+
+    public double getRemainingCreditAmount()
+    {
+        return remainingCreditAmount;
     }
 
     public void setStudentID(String studentID)
@@ -78,5 +89,61 @@ public class Student extends Person
     public void setAcademicStatus(String academicStatus)
     {
         this.academicStatus = academicStatus;
+    }
+
+    public void setEstimatedGraduationDate(String estimatedGraduationDate)
+    {
+        this.estimatedGraduationDate = estimatedGraduationDate;
+    }
+
+    public void setAdvisor(String advisor)
+    {
+        this.advisor = advisor;
+    }
+
+    public void setStudentEmail(String studentEmail)
+    {
+        this.studentEmail = studentEmail;
+    }
+
+    public void setNumberOfClasses(int numberOfClasses)
+    {
+        this.numberOfClasses = numberOfClasses;
+    }
+
+    public void setGPA(double gpa)
+    {
+        this.gpa = gpa;
+    }
+
+    public void setCurrentCreditAmount(double currentCreditAmount)
+    {
+        this.currentCreditAmount = currentCreditAmount;
+    }
+
+    public void setTotalCreditAmount(double totalCreditAmount)
+    {
+        this.totalCreditAmount = totalCreditAmount;
+    }
+
+    public void setRemainingCreditAmount(double remainingCreditAmount)
+    {
+        this.remainingCreditAmount = remainingCreditAmount;
+    }
+
+    public void checkFailing(boolean isFailing)
+    {
+        if(gpa < 2.0) return true;
+        else if(gpa > 2.0) return false;
+
+        return null;
+    }
+
+    public void checkPartTime(boolean isPartTime)
+    {
+        if(currentCreditAmount < 12) return true;
+        else if(currentCreditAmount > 12) return false;
+
+        return null;
     }
 }

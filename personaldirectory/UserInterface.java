@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class UserInterface
 {
-    private int user_input = 0;
+    private int user_input;
 
     public void mainMenu()
     {

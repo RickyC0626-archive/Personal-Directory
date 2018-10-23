@@ -1,11 +1,9 @@
 /*  The Person class
 
-    Description: Contains information about a person
+    Description: Contains information that every person has
+    + Getter and setter methods
 
     Authors: Ricky Chon
-
-    Objectives:
-    + Gets and sets a person's personal information
 */
 
 public class Person
@@ -78,6 +76,16 @@ public class Person
         return maritalStatus;
     }
 
+    public String getPhoneNumber()
+    {
+        return phoneNumber;
+    }
+
+    public String getEmail()
+    {
+        return email;
+    }
+
     public int getAge()
     {
         return age;
@@ -93,9 +101,9 @@ public class Person
         this.address = address;
     }
 
-    public void setDOB(String month, int day, int year)
+    public void setDOB(String dob)
     {
-        dateOfBirth = month + " " + day + ", " + year;
+        this.dob = dob;
     }
 
     public void setGender(String gender)
@@ -116,6 +124,16 @@ public class Person
     public void setMaritalStatus(String maritalStatus)
     {
         this.maritalStatus = maritalStatus;
+    }
+
+    public void setPhoneNumber(String phoneNumber)
+    {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
     }
 
     public void setAge(int age)

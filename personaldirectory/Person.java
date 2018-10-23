@@ -17,12 +17,25 @@ public class Person
     private String firstName = "";
     private String lastName = "";
     private String maritalStatus = "";
+    private String phoneNumber = "";
+    private String email = "";
     private int age;
     private int personalID;
 
-    Person()
+    Person(String address, String dob, String ethnicity, String gender, String firstName, String lastName,
+           String maritalStatus, String phoneNumber, String email, int age, int personalID)
     {
-        
+        this.address = address;
+        this.dob = dob;
+        this.ethnicity = ethnicity;
+        this.gender = gender;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.martialStatus = maritalStatus;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.age = age;
+        this.personalID = personalID;
     }
 
     public String getAddress()
@@ -75,9 +88,9 @@ public class Person
         return personalID;
     }
 
-    public void setAddress()
+    public void setAddress(String address)
     {
-
+        this.address = address;
     }
 
     public void setDOB(String month, int day, int year)

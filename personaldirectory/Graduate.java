@@ -8,5 +8,11 @@
 
 public class Graduate extends Student
 {
+    public String degree = "";
+    public String fieldOfStudy = "";
 
+    public Graduate()
+    {
+
+    }
 }

@@ -12,15 +12,22 @@ public class Student extends Person
     private String academicStatus = "";
     private String estimatedGraduationDate = "";
     private String advisor = "";
+    private String studentEmail = "";
     private boolean isFailing = false;
-    private double gpa;
+    private boolean isPartTime = false;
     private int numberOfClasses;
-    private int currentCreditAmount;
-    private int totalCreditAmount;
+    private double gpa;
+    private double currentCreditAmount;
+    private double totalCreditAmount;
+    private double remainingCreditAmount;
 
-    public Student()
+    Student(String studentID, String academicStatus, String estimatedGraduationDate, String advisor, String studentEmail)
     {
-
+        this.studentID = studentID;
+        this.academicStatus = academicStatus;
+        this.estimatedGraduationDate = estimatedGraduationDate;
+        this.advisor = advisor;
+        this.studentEmail = studentEmail;
     }
 
     public String getStudentID()
@@ -66,5 +73,10 @@ public class Student extends Person
     public void setStudentID(String studentID)
     {
         this.studentID = studentID;
+    }
+
+    public void setAcademicStatus(String academicStatus)
+    {
+        this.academicStatus = academicStatus;
     }
 }

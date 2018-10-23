@@ -29,7 +29,7 @@ public class Person
         this.gender = gender;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.martialStatus = maritalStatus;
+        this.maritalStatus = maritalStatus;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.age = age;

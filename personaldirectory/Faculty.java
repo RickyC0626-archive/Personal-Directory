@@ -10,6 +10,6 @@ public class Faculty extends Person
 {
     Faculty()
     {
-        
+
     }
 }

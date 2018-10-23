@@ -25,21 +25,8 @@
 //This is the main class
 public class PersonalDirectory
 {
-    UserInterface ui = new UserInterface();
-
     public static void main(String[] args)
     {
-        
-    }
 
-    public void onEnable()
-    {
-        System.out.println("The Personal Directory Application is now Enabled");
-        startup();
-    }
-
-    public void startup()
-    {
-        ui.mainMenu();
     }
 }

@@ -20,6 +20,11 @@ public class Person
     private int age;
     private int personalID;
 
+    Person()
+    {
+        
+    }
+
     public String getAddress()
     {
         return address;

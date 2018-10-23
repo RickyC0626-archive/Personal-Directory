@@ -8,5 +8,5 @@
 
 public class Undergraduate extends Student
 {
-
+    private double creditAmountToGraduate = 120;
 }

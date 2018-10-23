@@ -22,6 +22,8 @@
    + Removing quick messaging setup
 */
 
+import java.util.Scanner;
+
 //This is the main class
 public class PersonalDirectory
 {

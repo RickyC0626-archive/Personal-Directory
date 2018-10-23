@@ -1,10 +1,42 @@
+/*  The DateOfBirth Class
+
+    Description: Converts the date of birth inputted by the
+    user as numbers to their String equivalent.
+    + Tests if the month is valid
+    + Tests if the day is valid for each month
+    + Tests if it is a leap year
+*/
+
+import java.util.Scanner;
+
 public class DateOfBirth
 {
-  private String month = "";
-  private int day;
-  private int year;
+    private String month = "";
+    private int day;
+    private int year;
 
-  public String testMonth(String month)
+    public String getMonth()
+    {
+        return month;
+    }
+
+  public int getDay()
+  {
+      return day;
+  }
+
+  public int getYear()
+  {
+      return year;
+  }
+
+  public void setMonth(String month)
+  {
+      this.month = month;
+	  testMonth();
+  }
+
+  public void testMonth()
   {
      switch(month)
      {
@@ -20,20 +52,18 @@ public class DateOfBirth
        case "10": month = "October"; break;
        case "11": month = "November"; break;
        case "12": month = "December"; break;
-       default: System.out.println("That is not a valid month. Try again.");
-                return null;
+       default: System.out.println("That is not a valid month. Try again.\n");
                 break;
      }
-     return month;
   }
 
-  public int testDay(int day)
+  public int testDay()
   {
-
+      return day;
   }
 
-   public int testYear(int year)
+   public int testYear()
    {
-      int currentYear = Date.getCurrentDate();
+       return year;
    }
 }

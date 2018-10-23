@@ -8,8 +8,6 @@
 
 public class Person
 {
-    private DateOfBirth date = new DateOfBirth();
-
     private String address = "";
     private String dob = "";
     private String ethnicity = "";

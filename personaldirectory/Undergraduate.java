@@ -3,7 +3,7 @@
    Description: Contains information about an undergraduate
    in the college's directory
 
-   Authors: Ricky Chon
+   Authors: Ricky Chon, Nick Climaco, ZeJun Ren
 */
 
 public class Undergraduate extends Student

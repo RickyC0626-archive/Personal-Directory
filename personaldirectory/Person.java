@@ -3,11 +3,13 @@
     Description: Contains information that every person has
     + Getter and setter methods
 
-    Authors: Ricky Chon
+    Authors: Ricky Chon, Nick Climaco
 */
 
 public class Person
 {
+    private DateOfBirth date = new DateOfBirth();
+
     private String address = "";
     private String dob = "";
     private String ethnicity = "";
@@ -29,7 +31,7 @@ public class Person
         this.gender = gender;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.martialStatus = maritalStatus;
+        this.maritalStatus = maritalStatus;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.age = age;

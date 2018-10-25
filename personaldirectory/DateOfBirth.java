@@ -28,10 +28,10 @@ public class DateOfBirth
     private String day;
     private String year;
 
-    public String getMonth()
-    {
-        return month;
-    }
+  public String getMonth()
+  {
+    return month;
+  }
 
   	public String getDay()
   	{

@@ -25,13 +25,13 @@ public class DateOfBirth
 	private String monthWith28Days = "February";
 
     private String month = "";
-    private String day;
-    private String year;
+    private String day = "";
+    private String year = "";
 
-  public String getMonth()
-  {
-    return month;
-  }
+  	public String getMonth()
+  	{
+    	return month;
+  	}
 
   	public String getDay()
   	{
@@ -182,16 +182,6 @@ public class DateOfBirth
 		}
   	}
 
-	public boolean isCurrentMonthOrLess(String month)
-	{
-		return Integer.parseInt(month) <= ((Calendar.getInstance().get(Calendar.MONTH)) + 1);
-	}
-
-	public boolean isCurrentYear(String year)
-	{
-		return Integer.parseInt(year) == (Calendar.getInstance().get(Calendar.YEAR));
-	}
-
 	public void setDay()
 	{
 		try
@@ -200,15 +190,36 @@ public class DateOfBirth
 
 			for(String month : monthWith31Days)
 			{
-				if(this.month.equals(month)) if(!(Integer.parseInt(day) >= 1 && Integer.parseInt(day) <= 31)) throw new IllegalInputException();
+				if(isCurrentYear(year) && isCurrentMonthOrLess(month))
+				{
+					if(this.month.equals(month)) if(!(isCurrentDayOrLess(day))) throw new DayOutOfBoundsException();
+				}
+				else
+				{
+					if(this.month.equals(month)) if(!(Integer.parseInt(day) >= 1 && Integer.parseInt(day) <= 31)) throw new IllegalInputException();
+				}
 			}
 
 			for(String month : monthWith30Days)
 			{
-				if(this.month.equals(month)) if(!(Integer.parseInt(day) >= 1 && Integer.parseInt(day) <= 30)) throw new IllegalInputException();
+				if(isCurrentYear(year) && isCurrentMonthOrLess(month))
+				{
+					if(this.month.equals(month)) if(!(isCurrentDayOrLess(day))) throw new DayOutOfBoundsException();
+				}
+				else
+				{
+					if(this.month.equals(month)) if(!(Integer.parseInt(day) >= 1 && Integer.parseInt(day) <= 30)) throw new IllegalInputException();
+				}
 			}
 
-			if(this.month.equals(monthWith28Days)) if(!(Integer.parseInt(day) >= 1 && Integer.parseInt(day) <= 28)) throw new IllegalInputException();
+			if(isCurrentYear(year) && isCurrentMonthOrLess(month))
+			{
+				if(this.month.equals(month)) if(!(isCurrentDayOrLess(day))) throw new DayOutOfBoundsException();
+			}
+			else
+			{
+				if(this.month.equals(monthWith28Days)) if(!(Integer.parseInt(day) >= 1 && Integer.parseInt(day) <= 28)) throw new IllegalInputException();
+			}
 		}
 		catch(IllegalInputException e)
 		{
@@ -218,6 +229,11 @@ public class DateOfBirth
 		catch(NumberFormatException e)
 		{
 			System.out.println("\nYou must enter a valid day in the form of a number.\n");
+			setDay();
+		}
+		catch(DayOutOfBoundsException e)
+		{
+			System.out.println("\nYou must enter a value that is equal to or less than the current day.\n");
 			setDay();
 		}
 	}
@@ -269,5 +285,20 @@ public class DateOfBirth
 	{
 		System.out.print("Enter the year of your birth: ");
 		year = sc.next();
+	}
+
+	public boolean isCurrentYear(String year)
+	{
+		return Integer.parseInt(year) == (Calendar.getInstance().get(Calendar.YEAR));
+	}
+
+	public boolean isCurrentMonthOrLess(String month)
+	{
+		return Integer.parseInt(month) <= ((Calendar.getInstance().get(Calendar.MONTH)) + 1);
+	}
+
+	public boolean isCurrentDayOrLess(String day)
+	{
+		return Integer.parseInt(day) <= (Calendar.getInstance().get(Calendar.DATE));
 	}
 }

@@ -1,8 +1,7 @@
-/* 	IllegalInputException Class
+/*	IllegalInputException Class
 
-	Description: Deals with exceptions
-	caused by unwanted or illegal user inputs.
-	Similar to the InputMismatchException class
+	Description: Handles exceptions that include
+	unwanted or illegal inputs from the user
 
 	Authors: Ricky Chon
 */

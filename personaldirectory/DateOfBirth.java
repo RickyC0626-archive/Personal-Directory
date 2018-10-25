@@ -15,10 +15,10 @@ public class DateOfBirth
     private int day;
     private int year;
 
-    public String getMonth()
-    {
-        return month;
-    }
+  public String getMonth()
+  {
+    return month;
+  }
 
   public int getDay()
   {

@@ -19,7 +19,6 @@ import java.util.Scanner;
 public class DateOfBirth
 {
 	private Scanner sc = new Scanner(System.in);
-	private boolean ime = false;
 
 	private String[] monthWith31Days = {"January", "March", "May", "July", "August", "October", "December"};
 	private String[] monthWith30Days = {"April", "June", "September", "November"};
@@ -50,22 +49,126 @@ public class DateOfBirth
 		{
 			monthMenu();
 
-			switch(month)
-     		{
-				case "1": month = monthWith31Days[0]; break;
-       			case "2": month = monthWith28Days; break;
-       			case "3": month = monthWith31Days[1]; break;
-       			case "4": month = monthWith30Days[0]; break;
-      			case "5": month = monthWith31Days[2]; break;
-      			case "6": month = monthWith30Days[1]; break;
-       			case "7": month = monthWith31Days[3]; break;
-       			case "8": month = monthWith31Days[4]; break;
-				case "9": month = monthWith30Days[2]; break;
- 				case "10": month = monthWith31Days[5]; break;
-       			case "11": month = monthWith30Days[3]; break;
-       			case "12": month = monthWith31Days[6]; break;
-	       		default: throw new IllegalInputException();
-			 }
+			if(isCurrentYear(year))
+			{
+				switch(month)
+				{
+					case "1":
+					if(isCurrentMonthOrLess(month))
+					{
+						month = monthWith31Days[0];
+						break;
+					}
+					else throw new MonthOutOfBoundsException();
+
+					case "2":
+					if(isCurrentMonthOrLess(month))
+					{
+						month = monthWith28Days;
+						break;
+					}
+					else throw new MonthOutOfBoundsException();
+
+					case "3":
+					if(isCurrentMonthOrLess(month))
+					{
+						month = monthWith31Days[1];
+						break;
+					}
+					else throw new MonthOutOfBoundsException();
+
+					case "4":
+					if(isCurrentMonthOrLess(month))
+					{
+						month = monthWith30Days[0];
+						break;
+					}
+					else throw new MonthOutOfBoundsException();
+
+					case "5":
+					if(isCurrentMonthOrLess(month))
+					{
+						month = monthWith31Days[2];
+						break;
+					}
+					else throw new MonthOutOfBoundsException();
+
+					case "6":
+					if(isCurrentMonthOrLess(month))
+					{
+						month = monthWith30Days[1];
+						break;
+					}
+					else throw new MonthOutOfBoundsException();
+
+					case "7":
+					if(isCurrentMonthOrLess(month))
+					{
+						month = monthWith31Days[3];
+						break;
+					}
+					else throw new MonthOutOfBoundsException();
+
+					case "8":
+					if(isCurrentMonthOrLess(month))
+					{
+						month = monthWith31Days[4];
+						break;
+					}
+					else throw new MonthOutOfBoundsException();
+
+					case "9":
+					if(isCurrentMonthOrLess(month))
+					{
+						month = monthWith30Days[2];
+						break;
+					}
+					else throw new MonthOutOfBoundsException();
+
+					case "10":
+					if(isCurrentMonthOrLess(month))
+					{
+						month = monthWith31Days[5];
+						break;
+					}
+					else throw new MonthOutOfBoundsException();
+
+					case "11":
+					if(isCurrentMonthOrLess(month))
+					{
+						month = monthWith30Days[3];
+						break;
+					}
+					else throw new MonthOutOfBoundsException();
+
+					case "12":
+					if(isCurrentMonthOrLess(month))
+					{
+						month = monthWith31Days[6];
+						break;
+					}
+					else throw new MonthOutOfBoundsException();
+				}
+			}
+			else
+			{
+				switch(month)
+	     		{
+					case "1": month = monthWith31Days[0]; break;
+	       			case "2": month = monthWith28Days; break;
+	       			case "3": month = monthWith31Days[1]; break;
+	       			case "4": month = monthWith30Days[0]; break;
+	      			case "5": month = monthWith31Days[2]; break;
+	      			case "6": month = monthWith30Days[1]; break;
+	       			case "7": month = monthWith31Days[3]; break;
+	       			case "8": month = monthWith31Days[4]; break;
+					case "9": month = monthWith30Days[2]; break;
+	 				case "10": month = monthWith31Days[5]; break;
+	       			case "11": month = monthWith30Days[3]; break;
+	       			case "12": month = monthWith31Days[6]; break;
+		       		default: throw new IllegalInputException();
+				 }
+			}
 		}
 		catch(IllegalInputException e)
 		{
@@ -81,7 +184,7 @@ public class DateOfBirth
 
 	public boolean isCurrentMonthOrLess(String month)
 	{
-		return Integer.parseInt(month) <= (Calendar.getInstance().get(Calendar.MONTH));
+		return Integer.parseInt(month) <= ((Calendar.getInstance().get(Calendar.MONTH)) + 1);
 	}
 
 	public boolean isCurrentYear(String year)

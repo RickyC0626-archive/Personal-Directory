@@ -11,6 +11,9 @@ public class Advisor extends Person {
   private boolean isAcademicAdvisor;
   private boolean isIndustryAdvisor;
   private int yearsAsAdvisor;
+  private Student[] students;
+  private String officeHoursStart;
+  private String officeHoursEnd;
 
   public Advisor(String department, boolean isAcademicAdvisor, boolean isIndustryAdvisor, int yearsAsAdvisor) {
     super();

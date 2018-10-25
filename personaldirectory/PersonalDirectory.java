@@ -27,8 +27,15 @@ import java.util.Scanner;
 //This is the main class
 public class PersonalDirectory
 {
-    public static void main(String[] args)
+	private static DateOfBirth dob = new DateOfBirth();
+
+    public static void main(String[] args) throws IllegalInputException
     {
+		System.out.println("Driver for DateOfBirth\n");
+		dob.setYear();
+		dob.setMonth();
+		dob.setDay();
+		System.out.println("\nYou were born on " + dob.getMonth() + " " + dob.getDay() + ", " + dob.getYear());
 
     }
 }

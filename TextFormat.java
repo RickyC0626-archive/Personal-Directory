@@ -1,3 +1,10 @@
+/* 	TextFormat Class
+
+	Desception: Fancy text formats for aesthetics
+
+	Authors: Ricky Chon
+*/
+
 public class TextFormat
 {
 	private final String textReset = "\033[0m";

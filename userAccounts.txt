@@ -1,0 +1,4 @@
+[username] Dog [password] woof [birthday] [first name] [last name]
+[username] Cat [password] meow [birthday] [first name] [last name]
+[username] Fish [password] water [birthday] [first name] [last name]
+[username] Eagle [password] fly [birthday] [first name] [last name]

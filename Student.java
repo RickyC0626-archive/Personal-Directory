@@ -16,20 +16,13 @@ public class Student extends Person
 	private final String token = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	private final int tokenLength = token.length();
 
-	private String studentID = "";
-    private String academicStatus = "";
-    private String estimatedGraduationDate = "";
-    private String advisor = "";
-    private String studentEmail = "";
-    private boolean isFailing = false;
-    private boolean isPartTime = false;
-    private int numberOfClasses;
-    private double gpa;
-    private double currentCreditAmount;
-    private double totalCreditAmount;
-    private double remainingCreditAmount;
+	private String studentID = "N/A";
+    private String academicStatus = "N/A";
+    private String estimatedGraduationDate = "N/A";
+    private String advisor = "N/A";
+    private String studentEmail = "N/A";
 
-    public Student() throws InterruptedException
+    public Student() throws InterruptedException, Exception
 	{
 		createStudentID();
 		createStudentEmail();
@@ -60,31 +53,6 @@ public class Student extends Person
         return studentEmail;
     }
 
-    public int getNumberOfClasses()
-    {
-        return numberOfClasses;
-    }
-
-    public double getGPA()
-    {
-        return gpa;
-    }
-
-    public double getCurrentCreditAmount()
-    {
-        return currentCreditAmount;
-    }
-
-    public double getTotalCreditAmount()
-    {
-        return totalCreditAmount;
-    }
-
-    public double getRemainingCreditAmount()
-    {
-        return remainingCreditAmount;
-    }
-
     public void setStudentID(String studentID)
     {
         this.studentID = studentID;
@@ -110,43 +78,6 @@ public class Student extends Person
         this.studentEmail = studentEmail;
     }
 
-    public void setNumberOfClasses(int numberOfClasses)
-    {
-        this.numberOfClasses = numberOfClasses;
-    }
-
-    public void setGPA(double gpa)
-    {
-        this.gpa = gpa;
-    }
-
-    public void setCurrentCreditAmount(double currentCreditAmount)
-    {
-        this.currentCreditAmount = currentCreditAmount;
-    }
-
-    public void setTotalCreditAmount(double totalCreditAmount)
-    {
-        this.totalCreditAmount = totalCreditAmount;
-    }
-
-    public void setRemainingCreditAmount(double remainingCreditAmount)
-    {
-        this.remainingCreditAmount = remainingCreditAmount;
-    }
-
-    public void checkFailing(boolean isFailing)
-    {
-        if(gpa < 2.0) isFailing = true;
-        else if(gpa > 2.0) isFailing = false;
-    }
-
-    public void checkPartTime(boolean isPartTime)
-    {
-        if(currentCreditAmount < 12) isPartTime = true;
-        else if(currentCreditAmount >= 12) isPartTime = false;
-    }
-
 	public void createStudentID()
 	{
 		String placeholder = "";
@@ -162,11 +93,11 @@ public class Student extends Person
 	{
 		String placeholder = "";
 
-		placeholder = getFirstName() + "." + getLastName();
+		placeholder = getFirstName() + "." + getLastName() + ".";
 
-		for(int i = 0; i < 2; i++)
+		for(int i = 0; i < 4; i++)
 		{
-			placeholder += token.charAt(random.nextInt(tokenLength));
+			placeholder += token.charAt(random.nextInt(10));
 		}
 		placeholder += "@personal.directory.io";
 		setStudentEmail(placeholder);

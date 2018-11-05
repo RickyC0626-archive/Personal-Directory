@@ -15,7 +15,7 @@ public class Advisor extends Person
   	private String officeHoursEnd;
 	private int yearsAsAdvisor;
 
-  	public Advisor() throws InterruptedException
+  	public Advisor() throws InterruptedException, Exception
 	{
 
   	}

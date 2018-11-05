@@ -1,3 +1,11 @@
+/*	The Account Class
+
+	Description: Handles account creation and management
+
+	Authors: Ricky Chon
+*/
+
+import java.io.IOException;
 import java.io.File;
 import java.io.PrintStream;
 import java.util.Scanner;
@@ -7,31 +15,31 @@ public class Account
 	private Scanner sc = new Scanner(System.in);
 	private TextFormat format = new TextFormat();
 
-	private String username = "";
-	private String password = "";
+	private static String username = "N/A";
+	private static String password = "N/A";
 
 	//Constructor for new account
 	public Account() throws InterruptedException, Exception
 	{
+		System.out.println("CREATING AN ACCOUNT\n======================================================\n");
 		createUsername();
 		createPassword();
 		format.loading();
-		format.clearScreen();
-		promptUser();
 	}
 
 	//Constructor for old account login
 	public Account(String username, String password)
 	{
-
+		this.username = username;
+		this.password = password;
 	}
 
-	public String getUsername()
+	public static String getUsername()
 	{
 		return username;
 	}
 
-	public String getPassword()
+	public static String getPassword()
 	{
 		return password;
 	}
@@ -49,7 +57,7 @@ public class Account
 	//Signup methods for new account---------------------------------------------------------------------------------------------------
 	public void createUsername() throws InterruptedException, Exception
 	{
-		Scanner file_input = new Scanner(new File("existingUsernames.txt"));
+		Scanner file_input = new Scanner(new File("userAccounts.txt"));
 		String user_input = "";
 
 		try
@@ -58,12 +66,35 @@ public class Account
 			System.out.print("Username: ");
 			user_input = sc.next();
 
-			while(file_input.hasNextLine())
+			while(file_input.hasNext())
 			{
-				String placeholder = file_input.nextLine();
+				for(int lineNumber = 1;; lineNumber++)
+				{
+					System.out.println("Line Number: " + lineNumber);
+					String usernameToken = "[username]";
+					String placeholder = file_input.next();
+					System.out.println("Placeholder: " + placeholder);
 
-				if(placeholder.equalsIgnoreCase(user_input)) throw new Exception();
+					if((placeholder.equals(usernameToken)))
+					{
+						String realUsername = file_input.next();
+						System.out.println("RealUsername: " + realUsername);
+
+						if(user_input.equals(realUsername)) throw new Exception();
+						else break;
+					}
+					else
+					{
+						String disposal = file_input.nextLine();
+						System.out.println("Disposal: " + disposal);
+					}
+				}
 			}
+		}
+		catch(IOException e)
+		{
+			System.out.println(format.toRedText("\nThere is something wrong with the file. Please check to see if the first term is [username].\n"));
+			System.exit(0);
 		}
 		catch(Exception e)
 		{
@@ -135,37 +166,6 @@ public class Account
 			createPassword();
 		}
 		setPassword(newPassword);
-	}
-
-	public void promptUser() throws InterruptedException
-	{
-		String selection;
-
-		try
-		{
-			sc.reset();
-			System.out.println("GETTING STARTED\n======================================================\n");
-			System.out.println("Welcome to the Personal Directory System \"" + getUsername() + "\"!");
-			System.out.println("Which of the following is your current status?\n");
-			System.out.println("[1] Undergraduate Student");
-			System.out.println("[2] Graduate Student");
-			System.out.println("[3] Advisor");
-			System.out.print("Enter your selection: ");
-			selection = sc.next();
-
-			switch(selection)
-			{
-				case "1": format.loading(); Undergraduate newUndergrad = new Undergraduate(); break;
-				case "2": format.loading(); Graduate newGrad = new Graduate(); break;
-				case "3": format.loading(); Advisor newAdvisor = new Advisor(); break;
-				default: throw new Exception();
-			}
-		}
-		catch(Exception e)
-		{
-			format.wrongSelection();
-			promptUser();
-		}
 	}
 	//-----------------------------------------------------------------------------------------------------------------------------
 }

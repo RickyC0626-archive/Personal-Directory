@@ -14,27 +14,34 @@ import java.util.regex.Pattern;
 
 public class Person
 {
+	protected Account account;
+
 	private Scanner sc = new Scanner(System.in);
 	private TextFormat format = new TextFormat();
 	private DateOfBirth dob = new DateOfBirth();
 
-    private String address;
-    private String birthday = "";
-    private String firstName = "";
-    private String lastName = "";
-    private String phoneNumber = "";
-    private String email = "";
-	private int age;
+    private String address = "N/A";
+    private String birthday = "N/A";
+	private String firstName = "N/A";
+    private String lastName = "N/A";
+    private String phoneNumber = "N/A";
+    private String email = "N/A";
 
-    public Person() throws InterruptedException
+    public Person() throws InterruptedException, Exception
     {
+		this.account = new Account();
+		System.out.println("PERSONAL INFORMATION\n======================================================\n");
 		firstNameMenu();
 		lastNameMenu();
 		emailMenu();
 		phoneNumberMenu();
 		birthdayMenu();
-		setAge();
     }
+
+	public Person(String username, String password)
+	{
+		this.account = new Account(username, password);
+	}
 
     public String getAddress()
     {
@@ -71,11 +78,6 @@ public class Person
         return email;
     }
 
-    public int getAge()
-    {
-        return age;
-    }
-
     public void setAddress(String address)
     {
         this.address = address;
@@ -105,11 +107,6 @@ public class Person
     {
         this.email = email;
     }
-
-	public void setAge()
-	{
-		this.age = Calendar.getInstance().get(Calendar.YEAR) - Integer.parseInt(dob.getYear());
-	}
 
 	public void addressMenu()
 	{

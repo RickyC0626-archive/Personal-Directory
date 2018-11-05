@@ -3,7 +3,7 @@
    Description: Contains information about an undergraduate
    in the college's directory
 
-   Authors: Ricky Chon, Nick Climaco, ZeJun Ren
+   Authors: Ricky Chon, Nick Climaco
 */
 
 import java.util.Scanner;
@@ -20,8 +20,9 @@ public class Undergraduate extends Student
     private String minor2 = "N/A";
     private String concentration = "N/A";
 
-	public Undergraduate() throws InterruptedException
+	public Undergraduate() throws InterruptedException, Exception
 	{
+		setAcademicStatus("Undergraduate");
 		displayProfile();
 		undergraduateMenu();
 	}
@@ -71,39 +72,30 @@ public class Undergraduate extends Student
 		this.minor2 = minor2;
 	}
 
-	public boolean isDoubleMajor()
+	public void setConcentration(String concentration)
 	{
-		return (!(major1.equals("")) && !(major2.equals("")));
-	}
-
-	public boolean isDoubleMinor()
-	{
-		return (!(minor1.equals("")) && !(minor2.equals("")));
+		this.concentration = concentration;
 	}
 
 	public void displayProfile() throws InterruptedException
 	{
 		format.clearScreen();
-		Thread.sleep(200);
 		System.out.println("PROFILE\n======================================================\n");
-		Thread.sleep(200);
+		System.out.println("Username: " + Account.getUsername());
 		System.out.println("Email: " + getEmail());
-		Thread.sleep(200);
-		System.out.println("First Name: " + getFirstName());
-		Thread.sleep(200);
-		System.out.println("Last Name: " + getLastName());
-		Thread.sleep(200);
-		System.out.println("Age: " + getAge());
-		Thread.sleep(200);
-		System.out.println("Birthday: " + getBirthday());
-		Thread.sleep(200);
+		System.out.println("Phone Number: " + getPhoneNumber() + "\n");
+		System.out.println("Full Name: " + getFullName());
+		System.out.println("Birthday: " + getBirthday() + "\n");
+		System.out.println("Academic Status: " + getAcademicStatus());
+		System.out.println("First Major: " + getMajor1());
+		System.out.println("Second Major: " + getMajor2());
+		System.out.println("First Minor: " + getMinor1());
+		System.out.println("Second Minor: " + getMinor2());
+		System.out.println("Concentration: " + getConcentration() + "\n");
 		System.out.println("StudentID: " + getStudentID());
-		Thread.sleep(200);
-		System.out.println("Student Email: " + getStudentEmail());
-		Thread.sleep(200);
+		System.out.println("Student Email: " + getStudentEmail() + "\n");
+		System.out.println("Advisor: " + getAdvisor());
 		System.out.println("\n======================================================\n");
-		Thread.sleep(1000);
-
 	}
 
 	public void undergraduateMenu() throws InterruptedException
@@ -114,19 +106,12 @@ public class Undergraduate extends Student
 		{
 			sc.reset();
 			System.out.println("What would you like to do?");
-			Thread.sleep(200);
 			System.out.println("[1] Edit Profile");
-			Thread.sleep(200);
 			System.out.println("[2] Find Users via First Name");
-			Thread.sleep(200);
 			System.out.println("[3] Find Users via Last Name");
-			Thread.sleep(200);
-			System.out.println("[4] Find Users via Member Type (Undergraduate, Graduate, Advisor");
-			Thread.sleep(200);
+			System.out.println("[4] Find Users via Member Type (Undergraduate, Graduate, Advisor)");
 			System.out.println("[5] Find Users via Advisor Name");
-			Thread.sleep(200);
 			System.out.println("[6] Quit the Application");
-			Thread.sleep(200);
 			System.out.print("Enter your selection: ");
 			selection = sc.next();
 
@@ -148,29 +133,173 @@ public class Undergraduate extends Student
 		}
 	}
 
-	public void editProfile()
+	public void editProfile() throws InterruptedException
 	{
+		String selection;
 
+		try
+		{
+			sc.reset();
+			System.out.println("EDIT PROFILE\n======================================================\n");
+			System.out.println("[1] Edit Username");
+			System.out.println("[2] Edit Password");
+			System.out.println("[3] Edit Birthday");
+			System.out.println("[4] Edit First Name");
+			System.out.println("[5] Edit Last Name");
+			System.out.println("[6] Edit Phone Number");
+			System.out.println("[7] Edit Email");
+			System.out.println("[8] Edit First Major");
+			System.out.println("[9] Edit Second Major");
+			System.out.println("[10] Edit First Minor");
+			System.out.println("[11] Edit Second Minor");
+			System.out.println("[12] Edit Concentration");
+			System.out.println("[X] Go Back");
+			System.out.print("Enter your selection: ");
+			selection = sc.next();
+
+			switch(selection)
+			{
+				case "1": format.loading(); editUsername(); break;
+				case "2": format.loading(); editPassword(); break;
+				case "3": format.loading(); editBirthday(); break;
+				case "4": format.loading(); editFirstName(); break;
+				case "5": format.loading(); editLastName(); break;
+				case "6": format.loading(); editPhoneNumber(); break;
+				case "7": format.loading(); editEmail(); break;
+				case "8": format.loading(); editFirstMajor(); break;
+				case "9": format.loading(); editSecondMajor(); break;
+				case "10": format.loading(); editFirstMinor(); break;
+				case "11": format.loading(); editSecondMinor(); break;
+				case "12": format.loading(); editConcentration(); break;
+				case "X":
+				case "x": format.loading(); undergraduateMenu(); break;
+				default: throw new Exception();
+			}
+		}
+		catch(Exception e)
+		{
+			format.wrongSelection();
+			editProfile();
+		}
+		displayProfile();
+		undergraduateMenu();
+	}
+
+	public void editUsername() throws InterruptedException, Exception
+	{
+		System.out.println("EDIT USERNAME\n======================================================\n");
+		account.createUsername();
+	}
+
+	public void editPassword() throws InterruptedException, Exception
+	{
+		System.out.println("EDIT PASSWORD\n======================================================\n");
+		account.createPassword();
+	}
+
+	public void editBirthday() throws InterruptedException
+	{
+		System.out.println("EDIT BIRTHDAY\n======================================================\n");
+		birthdayMenu();
+	}
+
+	public void editFirstName() throws InterruptedException
+	{
+		System.out.println("EDIT FIRST NAME\n======================================================\n");
+		firstNameMenu();
+	}
+
+	public void editLastName() throws InterruptedException
+	{
+		System.out.println("EDIT LAST NAME\n======================================================\n");
+		lastNameMenu();
+	}
+
+	public void editPhoneNumber() throws InterruptedException
+	{
+		System.out.println("EDIT PHONE NUMBER\n======================================================\n");
+		phoneNumberMenu();
+	}
+
+	public void editEmail() throws InterruptedException
+	{
+		System.out.println("EDIT EMAIL\n======================================================\n");
+		emailMenu();
+	}
+
+	public void editFirstMajor()
+	{
+		String user_input;
+
+		System.out.println("EDIT FIRST MAJOR\n======================================================\n");
+		System.out.print("Enter your first major: ");
+		user_input = sc.next();
+
+		setMajor1(user_input);
+	}
+
+	public void editSecondMajor()
+	{
+		String user_input;
+
+		System.out.println("EDIT SECOND MAJOR\n======================================================\n");
+		System.out.print("Enter your second major: ");
+		user_input = sc.next();
+
+		setMajor2(user_input);
+	}
+
+	public void editFirstMinor()
+	{
+		String user_input;
+
+		System.out.println("EDIT FIRST MINOR\n======================================================\n");
+		System.out.print("Enter your first minor: ");
+		user_input = sc.next();
+
+		setMinor1(user_input);
+	}
+
+	public void editSecondMinor()
+	{
+		String user_input;
+
+		System.out.println("EDIT SECOND MINOR\n======================================================\n");
+		System.out.print("Enter your second minor: ");
+		user_input = sc.next();
+
+		setMinor2(user_input);
+	}
+
+	public void editConcentration()
+	{
+		String user_input;
+
+		System.out.println("EDIT CONCENTRATION\n======================================================\n");
+		System.out.print("Enter your concentration: ");
+		user_input = sc.next();
+
+		setConcentration(user_input);
 	}
 
 	public void searchFirstName()
 	{
-
+		System.out.println("SEARCH USER: FIRST NAME\n======================================================\n");
 	}
 
 	public void searchLastName()
 	{
-
+		System.out.println("SEARCH USER: LAST NAME\n======================================================\n");
 	}
 
 	public void searchMemberType()
 	{
-
+		System.out.println("SEARCH USER: MEMBER TYPE\n======================================================\n");
 	}
 
 	public void searchAdvisorName()
 	{
-
+		System.out.println("SEARCH USER: ADVISOR NAME\n======================================================\n");
 	}
 
 	public void quit()

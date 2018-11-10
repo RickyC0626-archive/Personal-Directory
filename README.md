@@ -23,3 +23,14 @@
    + Deleting a personal address book entry
    + Setting up quick messaging to members
    + Removing quick messaging setup
+
+Some basic commands to start the program are:
+```
+javac *.java
+java PersonalDirectory
+```
+![Start Program](https://i.gyazo.com/cf5082f710fe5fb53b73b42c2819f4b6.gif)
+
+The current version of the software contains the first three of the seven functionalities listed above. Further development will continue, to ensure complete implementation and smooth execution of the objectives.
+
+The current structure of the software is text based and executed in a terminal. Future updates will include GUI functionalities and a more modern look.

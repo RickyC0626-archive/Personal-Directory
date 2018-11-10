@@ -1,0 +1,40 @@
+[SenderID] J7G9XDAHXZ [ReceiverID] F459I7GQ2B2 [isRead] true
+[Message] This is a test.
+[SenderID] J7G9XDAHXZ [ReceiverID] F459I7GQ2B2 [isRead] true
+[Message] 123456
+[SenderID] J7G9XDAHXZ [ReceiverID] MUX1PMPN0F [isRead] false
+[Message] Remember to send in your thesis.
+[SenderID] J7G9XDAHXZ [ReceiverID] AYDH2AOVYY [isRead] false
+[Message] The program is working.
+[SenderID] AYDH2AOVYY [ReceiverID] J7G9XDAHXZ [isRead] true
+[Message] Show me.
+[SenderID] AYDH2AOVYY [ReceiverID] J7G9XDAHXZ [isRead] true
+[Message] Nice.
+[SenderID] AYDH2AOVYY [ReceiverID] J7G9XDAHXZ [isRead] true
+[Message] This is a test.
+[SenderID] AYDH2AOVYY [ReceiverID] J7G9XDAHXZ [isRead] true
+[Message] Send me your program.
+[SenderID] AYDH2AOVYY [ReceiverID] J7G9XDAHXZ [isRead] true
+[Message] Why do you add so much fancy stuff?
+[SenderID] AYDH2AOVYY [ReceiverID] J7G9XDAHXZ [isRead] true
+[Message] It's due tomorrow.
+[SenderID] AYDH2AOVYY [ReceiverID] J7G9XDAHXZ [isRead] true
+[Message] Did you finish assignment 20 yet?
+[SenderID] Z14HX5C8EA [ReceiverID] J7G9XDAHXZ [isRead] true
+[Message] Hello. This is dad.
+[SenderID] J7G9XDAHXZ [ReceiverID] IWU84HLA4B [isRead] false
+[Message] Yes and No
+[SenderID] F459I7GQ2B2 [ReceiverID] J7G9XDAHXZ [isRead] true
+[Message] TEST TEST TEST TEST TEST
+[SenderID] J7G9XDAHXZ [ReceiverID] F459I7GQ2B2 [isRead] true
+[Message] OK OK OK OK OK
+[SenderID] J7G9XDAHXZ [ReceiverID] F459I7GQ2B2 [isRead] true
+[Message] This is another test.
+[SenderID] J7G9XDAHXZ [ReceiverID] F459I7GQ2B2 [isRead] true
+[Message] RWAOIRRWRJWARJOIWJRIAJWIROAWIRJ
+[SenderID] J7G9XDAHXZ [ReceiverID] F459I7GQ2B2 [isRead] true
+[Message] Hello. This is a test.
+[SenderID] Q0I6E7PYQ5 [ReceiverID] J7G9XDAHXZ [isRead] true
+[Message] This is an example for Github
+[SenderID] J7G9XDAHXZ [ReceiverID] Q0I6E7PYQ5 [isRead] true
+[Message] This is also an example for Github
